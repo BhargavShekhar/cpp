@@ -1,0 +1,120 @@
+#include <bits/stdc++.h> 
+/****************************************************************
+    Following is the class structure of the Node class:
+    class Node
+    {
+    public:
+        int data;
+        Node *next;
+        Node(int data)
+        {
+            this->data = data;
+            this->next = NULL;
+        }
+    };
+*****************************************************************/
+Node* getMid(Node* head)
+{
+    Node* fast = head;
+    Node* slow = head;
+    Node* previous = nullptr;
+
+    while(fast != nullptr)
+    {
+        fast = fast -> next;
+        if(fast != nullptr)
+        {
+            fast = fast -> next;
+        }
+        previous = slow;
+        slow = slow -> next;
+    }
+
+    return previous;
+}
+
+Node* merge(Node* h1, Node* h2)
+{
+    // base case
+    if(h1 == nullptr)
+    {
+        return h2;
+    }
+
+    if(h2 == nullptr)
+    {
+        return h1;
+    }
+
+    //Recursive Call
+    Node* head = nullptr;
+
+    if(h1 -> data < h2 -> data)
+    {
+        head = h1;
+        head -> next = merge(h1 -> next, h2);
+    }
+
+    else
+    {
+        head = h2;
+        head -> next = merge(h1, h2 -> next);
+    }
+
+    return head;
+}
+
+Node* mergeSort(Node* head)
+{
+    // base case
+    if(head == nullptr || head -> next == nullptr)
+    {
+        return head;
+    }
+
+    // Recursive Call
+    Node* mid = getMid(head);
+    Node* left = head;
+    Node* right = mid -> next;
+    mid -> next = nullptr;
+
+    left = mergeSort(left);
+    right = mergeSort(right);
+
+    return merge(left, right);
+}
+
+Node *removeDuplicates(Node *head)
+{
+    // Edge Casses
+    if(head == nullptr || head -> next == nullptr)
+    {
+        return head;
+    }
+
+    Node* ans = mergeSort(head);
+
+    Node* current = ans;
+    Node* check = current -> next;
+
+    while(current != nullptr && current -> next != nullptr)
+    {
+        if(check != nullptr && current -> data == check -> data)
+        {
+            current -> next = check -> next;
+            delete check;
+            check = current -> next;
+        }
+
+        else
+        {
+            current = current -> next;
+            if(current != nullptr)
+            {
+                check = current -> next;
+            }
+        }
+    }
+
+    return ans;
+}

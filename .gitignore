@@ -1,0 +1,30 @@
+# Ignore executable files
+*.exe
+
+# Ignore PDF files
+# *.pdf
+
+# Ignore object files
+*.o
+
+# Ignore other common build files
+*.obj
+*.dll
+*.so
+*.dylib
+
+# Ignore backup files
+*.bak
+
+# Ignore temporary files
+*.tmp
+*.temp
+*~
+
+# Ignore build directories (if you have any)
+build/
+dist/
+
+# Ignore VS Code specific files and directories
+.vscode/
+*.code-workspace
