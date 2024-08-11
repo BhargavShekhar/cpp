@@ -26,5 +26,8 @@ build/
 dist/
 
 # Ignore VS Code specific files and directories
+/.vscode
 .vscode/
+*.vscode/
+*.vscode
 *.code-workspace
