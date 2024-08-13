@@ -37,6 +37,7 @@ Node* buildtree(Node* root) {
     root->right = buildtree(root);
 }
 
+// LNR
 void inorderTraversal(Node* root) {
     // base case
     if(root == nullptr) {
@@ -50,6 +51,7 @@ void inorderTraversal(Node* root) {
     inorderTraversal(root->right);
 }
 
+// NLR
 void preorderTraversal(Node* root) {
     // base case
     if(root == nullptr) {
@@ -63,6 +65,7 @@ void preorderTraversal(Node* root) {
     preorderTraversal(root->right);
 }
 
+// LRN
 void postorderTraversal(Node* root) {
     // base case
     if(root == nullptr) {
