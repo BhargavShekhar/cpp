@@ -57,11 +57,11 @@ void levelOrderTraversel(Node *root)
 
             if (!q.empty())
             {
-                q.push(nullptr);
+                q.push(nullptr); // if there is a nullptr in a queue => a level has been traversed
             }
             
         }
-
+        
         else
         { 
             cout << temp->data << " ";

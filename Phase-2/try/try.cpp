@@ -1,16 +1,6 @@
-#include<iostream>
-#include<typeinfo>
-using namespace std;
+#include <iostream>
+#include <string>
+int main(){
 
-int main()
-{
-    int num(3);
-    int arr[4];
-
-    cout << num << endl;
-    cout << typeid(num).name() << endl;
-
-    // int num = 3;
-    
-    return 0;
+    return 0;    
 }
