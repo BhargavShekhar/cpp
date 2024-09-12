@@ -5,7 +5,7 @@ using namespace std;
 class TrieNode{
     public:
         char data;
-        unordered_map<int, TrieNode*> children;  // Ascii Value:Trie
+        unordered_map<char, TrieNode*> children;  // Ascii Value:Trie
         bool isTerminal;
 
         // ctor
