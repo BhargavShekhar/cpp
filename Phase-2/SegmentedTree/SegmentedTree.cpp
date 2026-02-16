@@ -1,3 +1,4 @@
+// THIS IS A MAX SEGMENT TREE
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -42,7 +43,6 @@ class SegmentTree {
             2. the range is outside -> we will return INT_MIN 
             3. there is partial overlap of range -> we will traverse in both direction
         */
-       // NOTE THIS IS A MAX SEGMENT TREE
        // l, r -> query range, segLeft, segRight -> segment range (curr node)
         int queryHelper(int segLeft, int segRight, int l, int r, int idx) {
             // complete overlap if the segment is fully inside the query
